@@ -18,15 +18,16 @@ def create_abs_filepaths(top_root_path):
     return abs_filepaths
 
 
-def define_file_hash_md5(abs_filepath):
+def define_file_hash_md5(abs_filepath, blocksize=4096):
     file_hash_md5 = hashlib.md5()
+    print(file_hash_md5)
     with open(abs_filepath, "rb") as opened_file:
-        for chunk in iter(lambda: opened_file.read(4096), b""):
-            file_hash_md5.update(chunk)
+        for block in iter(lambda: opened_file.read(blocksize), b''):
+            file_hash_md5.update(block)
     return file_hash_md5.hexdigest()
 
 
-def detecte_dublicates(abs_filepaths_list):
+def detect_dublicates(abs_filepaths_list):
     dublicated_files = []
     non_dublicated_files = []
 
