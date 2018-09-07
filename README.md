@@ -31,7 +31,7 @@ These are dublicates of files stored higher at tree:
 </pre>
 
 
-Running with wrong path (argparses raised raises error):
+Running with wrong path (argparses raised an error):
 
 <pre>
 <b>>python dublicates.py -f C:\projects\devman\\new\dublicates\wrong_path </b>
