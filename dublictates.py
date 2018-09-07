@@ -4,8 +4,6 @@ import hashlib
 import datetime
 
 
-dirpath = 'C:\\projects\\devman\\new\\dublicates\\test_dir'
-
 def create_args_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', '--filepath', required=True)
@@ -18,6 +16,11 @@ def create_abs_filepaths(top_root_path):
         for file in files_in_nested_dir:
             abs_filepaths.append(os.path.join(root_dir, file))
     return abs_filepaths
+
+
+def check_arguments(parser, args):
+    if not os.path.exists(args.filepath):
+        parser.error('Path not found.')
 
 
 def define_file_hash_md5(abs_filepath, blocksize=4096):
@@ -52,10 +55,13 @@ def print_report(dublicated_filepaths_list):
                 filename))
 
 
-def main(top_root_path):
+def main():
+    parser = create_args_parser()
+    args = parser.parse_args()
+    check_arguments(parser, args)
     dublicated_filepaths = []
     non_dublicated_filehashes = []
-    abs_filepaths_list = create_abs_filepaths(top_root_path)
+    abs_filepaths_list = create_abs_filepaths(args.filepath)
     for filepath in abs_filepaths_list:
         file_hash_md5 = define_file_hash_md5(filepath)
         check_file_dublication(filepath,
@@ -66,4 +72,4 @@ def main(top_root_path):
 
 
 if __name__ == "__main__":
-    main(dirpath)
+    main()
