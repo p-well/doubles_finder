@@ -1,8 +1,10 @@
 # File Dublicates Searching
 
 The purpose of the script is to find duplicated files in directory tree. <br/>
+
 Script goes recursively into all nested folders and detects dublicates using file hash md5 sum. File with repeated hash is marked as duplication. From 2 files with the same hash those file will be marked as dublicate if it is stored deeper in folders tree. <br/>
-File names are not taken into account - dublicates may make different name (tghe only files content matters) 
+
+File names are not taken into account - dublicates may have different names (the only files content matters).
 
 Pavel Kadantsev, 2018. <br/>
 p.a.kadantsev@gmail.com
