@@ -1,8 +1,7 @@
 # File Dublicates Searching
 
 The purpose of the script is to find duplicated files in directory tree. <br/>
-Script goes recursively into all nested folders and detects dublicates using file hash md5 sum. <br/>
-File with repeated hash is marked as duplication. From 2 files with the same hash those file will be marked as dublicate if it is stored deeper in folders tree. <br/>
+Script goes recursively into all nested folders and detects dublicates using file hash md5 sum. File with repeated hash is marked as duplication. From 2 files with the same hash those file will be marked as dublicate if it is stored deeper in folders tree. <br/>
 File names are not taken into account - dublicates may make different name (tghe only files content matters) 
 
 Pavel Kadantsev, 2018. <br/>
@@ -20,7 +19,7 @@ Clone this repo on your machnine and run the script by executing ```python dupli
 Successful script launch:
 
 <pre>
-<b>>python duplicates.py C:\projects\1_test_folder </b>
+<b>>python duplicates.py  C:\projects\devman\new\dublicates\test_dublicates </b>
 
 These are dublicates of files stored higher at tree:
 
@@ -33,11 +32,10 @@ These are dublicates of files stored higher at tree:
 Running with wrong path (argparses raised raises error):
 
 <pre>
-<b>>python dublictates.py -f C:\projects\devman\\new\dublicates\wrong_path </b>
+<b>>python dublicates.py -f C:\projects\devman\\new\dublicates\wrong_path </b>
 usage: dublictates.py [-h] -f FILEPATH
 dublictates.py: error: Path not found.
 </pre>
-
 
 
 # Project Goals
